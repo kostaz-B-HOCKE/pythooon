@@ -1,4 +1,3 @@
-
 echo "\"name\"","\"count\"" > hh_uniq_positions.csv
 
 (tail -n +2 ../ex03/hh_positions.csv | \
@@ -16,4 +15,5 @@ awk 'BEGIN { FS = OFS = "," }
                 MID "\n\"Senior\"", SEN }
     ') | \
     sort -t',' -nk2\
-    >>  hh_uniq_positions.csv
+
+>>  hh_uniq_positions.csv

@@ -2,18 +2,17 @@ head -n 1 ../ex02/hh_sorted.csv > hh_positions.csv
 tail -n +2 ../ex02/hh_sorted.csv | \
 awk 'BEGIN { FS = OFS = "," } 
     {
-        STR = ""
+        str = ""
         if (index(tolower($3), "junior"))
-            STR = STR"Junior/"
+            str = str"Junior/"
         if (index(tolower($3), "middle"))
-            STR = STR"Middle/"
+            str = str"Middle/"
         if (index(tolower($3), "senior"))
-            STR = STR"Senior"
-        if (STR == "")
-            STR = "-"
-        gsub(/[\/ ]*$/, "", STR)
-        
-        $3 = "\""STR"\""
+            str = str"Senior"
+        if (str == "")
+            str = "-"
+        gsub(/[\/ ]*$/, "", str)
+        $3 = "\""str"\""
         print
     }' \
     >> hh_positions.csv
